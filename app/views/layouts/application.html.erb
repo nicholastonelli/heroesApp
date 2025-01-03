@@ -1,28 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
   <head>
-    <title><%= content_for(:title) || "Heroes" %></title>
+    <title>Heroes TTRPG App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="h-full" data-turbo="false" <%# data-controller="zz hello speed" %>>
+    <!--
+      This example requires Tailwind CSS v2.0+ 
+      
+      This example requires some changes to your config:
+      
+      ```
+      // tailwind.config.js
+      module.exports = {
+        // ...
+        plugins: [
+          // ...
+          require('@tailwindcss/forms'),
+        ],
+      }
+      ```
+    -->
+    <!--
+      This example requires updating your template:
+
+      ```
+      <html class="h-full bg-gray-100">
+      <body class="h-full">
+      ```
+    -->
+    <div data-controller="sidebar">
+      <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+      <%= render(Bars::SidebarComponent.new) %>
+
+      <div class="md:pl-64 flex flex-col flex-1">
+        
+      <%= render(Bars::SearchbarComponent.new) %>
+      
+
+        <main class="flex-1">
+          <div class="py-6">
+            <div class="main-body">
+              <!-- Replace with your content -->
+              
+                    <%= yield %>
+                  
+              <% if flash[:notice] %>
+                <!-- render viewComponent for flash ntoice here-->
+                <%= render(Notifications::NoticeComponent.new())%>
+                <% flash.clear %>
+              <% end %>
+
+            
+              <!-- /End replace -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

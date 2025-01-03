@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+  .test-primary {
+    @apply focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+   .button-primary {
+    @apply rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:outline-none;
+  }
+   .div-sidebar {
+    @apply flex-row text-gray-600 hover:bg-gray-50 hover:text-gray-900 flex items-center px-2 py-2 text-sm font-medium rounded-md;
+  } 
+   .svg-sidebar {
+    @apply text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6;
+   }
+   .a-dropdown {
+    @apply block px-4 py-2 text-sm text-gray-700;
+   }
+   .div-left-aligned-top {
+    @apply mt-5 border-t border-gray-200;
+   }
+   .dl-left-aligned-top {
+    @apply sm:divide-y sm:divide-gray-200;
+   }
+   .div-left-aligned-table-row {
+    @apply py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4;
+   }
+   .dt-left-aligned-title {
+    @apply text-sm font-medium text-gray-500;
+   }
+   .dt-left-aligned-value {
+    @apply mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2;
+   }
+   .ul-left-aligned {
+    @apply overflow-hidden overflow-y-scroll h-32 scroll-smooth border border-gray-200;
+   }
+   .link-crud {
+    @apply rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium;
+   }
+   .error {
+    @apply bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3;
+   }
+   .form-body {
+    @apply space-y-8 divide-y divide-gray-200 sm:space-y-5
+   }
+   .form-table {
+    @apply pt-8 space-y-6 sm:pt-10 sm:space-y-5;
+   }
+   .form-rows {
+    @apply space-y-6 sm:space-y-5;
+   }
+   .form-row {
+    @apply sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5
+   }
+   .form-label {
+    @apply block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2;
+   }
+   .form-input-div {
+    @apply mt-1 sm:mt-0 sm:col-span-1;
+   }
+   .form-input {
+    @apply max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md;
+   }
+   .form-editor {
+    @apply block w-full shadow-sm rounded-md border-0 px-1.5 py-1.5 ring-1 ring-inset ring-gray-300;
+   }
+   .form-editor-focus {
+    @apply ring-2 ring-indigo-500; 
+   }
+   .form-indicator {
+    @apply hidden items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800;
+   }
+   .form-cancel-btn {
+    @apply bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+   }
+   .form-submit-btn {
+    @apply ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+   }
+   .index-table-edit {
+    @apply relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6 md:pr-0;
+   }
+   .index-table-value {
+    @apply whitespace-nowrap py-4 px-3 text-sm text-gray-500;
+   }
+   .index-table-key {
+    @apply whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 md:pl-0;
+   }
+   .main-body {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-8;
+   }
+   .h1-title {
+    @apply text-xl font-semibold text-gray-900;
+   }
+   .p-subtitle {
+    @apply mt-2 text-sm text-gray-700;
+   }
+   .div-new-button {
+    @apply mt-4 sm:mt-0 sm:ml-16 sm:flex-none;
+   }
+   .new-crud-button {
+    @apply inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto;
+   }
+   .card-component {
+    @apply bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200;
+   }
+   .card-header {
+    @apply px-4 py-5 sm:px-6;
+   }
+   .card-body {
+    @apply px-4 py-5 sm:p-6;
+   }
+   .card-body-index-1 {
+    @apply px-4 sm:px-6 lg:px-8;
+   }
+   .card-body-index-2 {
+    @apply mt-8 flex flex-col;
+   }
+   .card-body-index-3 {
+    @apply -my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8;
+   }
+   .card-body-index-4 {
+    @apply inline-block min-w-full py-2 align-middle md:px-6 lg:px-8;
+   }
+   .card-body-table {
+    @apply min-w-full divide-y divide-gray-300;
+   }
+   .card-footer {
+    @apply px-4 py-4 sm:px-6;
+   }
+   .index-header-content {
+    @apply sm:flex sm:items-center;
+   }
+   .index-header-titles {
+    @apply sm:flex-auto;
+   }
+   .index-table-label-1 {
+    @apply py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6 md:pl-0;
+   }
+   .index-table-label-2 {
+    @apply py-3.5 px-3 text-left text-sm font-semibold text-gray-900;
+   }
+   .index-table-label-3 {
+    @apply relative py-3.5 pl-3 pr-4 sm:pr-6 md:pr-0;
+   }
+}
