@@ -1,0 +1,20 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="card-component">
+  <div class="card-header">
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">New address</h3>
+      </div>
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card headers on desktop than on body sections -->
+  </div>
+  <div class="card-body">
+    <!-- Content goes here -->
+    <%= render(Address::FormComponent.new(@address)) %>
+    
+  </div>
+  <div class="card-footer">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+     <%= link_to 'Back to addresses', addresses_path, class: "ml-2 link-crud" %>
+  </div>
+</div>

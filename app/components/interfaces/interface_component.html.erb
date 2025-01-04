@@ -1,0 +1,41 @@
+<div id="<%= dom_id @interface %>">
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Interface</dt>
+        <dd class="dt-left-aligned-value"><%= @interface.name %></dd>
+      </div>
+      <% if @interface.machine %> 
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Machine</dt>
+        <dd class="dt-left-aligned-value">
+          <%= link_to @interface.machine.name, machine_path(@interface.machine_id) %>
+        </dd>
+      </div>
+      <% end %>
+
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Port</dt>
+        <dd class="dt-left-aligned-value"><%= @interface.port %></dd>
+      </div>
+
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Duplex</dt>
+        <dd class="dt-left-aligned-value"><%= @interface.duplex %></dd>
+      </div>
+      
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Speed</dt>
+        <dd class="dt-left-aligned-value"><%= @interface.speed %></dd>
+      </div>
+    </dl>
+  </div>
+
+
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this interface", @interface, class: "link-crud" %>
+    <%= link_to "Edit this interface", edit_interface_path(@interface), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -1,0 +1,39 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+
+<div class="card-component">
+  <div class="card-header">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card headers on desktop than on body sections -->
+    
+    <div>
+      <h3 class="text-lg leading-6 font-medium text-gray-900">Address</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- Content goes here -->
+
+
+<%= render(Address::AddressComponent.new(@address)) do %>
+ 
+<% end %>
+<!-- -->
+  <% if action_name != "show" %>
+    <%= link_to "Show this address", @address, class: "link-crud" %>
+    <%= link_to "Edit this address", edit_address_path(@address), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
+
+</div>
+
+  <div class="card-footer">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+    <%= link_to "Edit this address", edit_address_path(@address), class: "mt-2 link-crud" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Destroy this address", address_path(@address), method: :delete, class: "mt-2 link-crud" %>
+    </div>
+    <%= link_to "Back to addresses", addresses_path, class: "ml-2 link-crud" %>
+  </div>
+
+</div>

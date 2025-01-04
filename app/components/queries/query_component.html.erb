@@ -1,0 +1,22 @@
+<div id="<%= dom_id @query %>">
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Name</dt>
+        <dd class="dt-left-aligned-value"><%= @query.name %></dd>
+      </div>
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Api Path</dt>
+        <dd class="dt-left-aligned-title">
+             <%= @query.api_path %>          
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this query", @query, class: "link-crud" %>
+    <%= link_to "Edit this query", edit_query_path(@query), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

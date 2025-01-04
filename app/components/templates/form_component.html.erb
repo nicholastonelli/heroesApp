@@ -1,0 +1,72 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<%= form_with(model: @template, class: "contents") do |form| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+      <ul>
+        <% @template.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-body">
+    <div>
+
+      <div class="form-table">
+        <div class="form-rows">
+
+          <div class="form-row">
+            <%= form.label :name, class: "form-label" %>
+            <div class="form-input-div">
+              <%= form.text_field(:name, class: "form-input" ) %>
+            </div>
+            <%= render(Notifications::FormErrorComponent.new(@template.errors.full_messages_for(:name))) %>
+          </div>
+          
+          <div class="form-row">
+            <%= form.label :type, class: "form-label" %>
+            <div class="form-input-div ">
+              <%= form.text_field(:type, class: "form-input" ) %>
+            </div>
+            <%= render(Notifications::FormErrorComponent.new(@template.errors.full_messages_for(:type))) %>
+          </div>
+
+          <div class="form-row">
+            <%= form.label :text, class: "form-label" %>
+            <div class="form-input-div col-span-2">
+              <div data-controller="editor" data-editor-focus-class="form-editor-focus" class="form-editor">
+                <%= form.hidden_field(:text, data: { editor_target: "field" } ) %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pt-5">
+        <div class="flex justify-end">
+          <button type="button" class="form-cancel-btn">Cancel</button>
+          <%= form.submit class: "form-submit-btn" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

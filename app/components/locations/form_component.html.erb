@@ -1,0 +1,56 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<%= form_with(model: @location, class: "contents") do |form| %>
+  <% if @location.errors.any? %>
+        <% @location.errors.each do |error| %>
+          <%= render(Notifications::ErrorComponent.new(@location))%>
+        <% end %>
+  <% end %>
+  <div class="form-body">
+    <div>
+
+    <div class="form-table">
+      <div class="form-rows">
+
+        <div class="form-row">
+          <%= form.label :name, class: "form-label" %>
+          <div class="form-input-div sm:col-span-1">
+            <%= form.text_field :name, class: "form-input" %> 
+          </div>
+
+          <%= render(Notifications::FormErrorComponent.new(@location.errors.full_messages_for(:name))) %>
+        </div>
+
+    <div class="form-row">
+          <%= form.label :machine_id, class: "form-label" %>
+          <div class="form-input-div">
+            <%= form.collection_select(:machine_ids, @sorted_machines, :id, :name, {}, { multiple: true, class: "form-input" }) %>
+          
+          
+
+          </div>
+            <%= render(Notifications::FormErrorComponent.new(@location.errors.full_messages_for(:machine_id))) %>
+        </div>
+    </div>
+    <div class="pt-5">
+      <div class="flex justify-end">
+        <button type="button" class="form-cancel-btn">Cancel</button>
+        <%= form.submit class: "form-submit-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

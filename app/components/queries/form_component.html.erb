@@ -1,0 +1,55 @@
+
+<%= form_with(model: @query, class: "contents") do |form| %>
+  <% if @query.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2><%= pluralize(@query.errors.count, "error") %> prohibited this query from being saved:</h2>
+      <ul>
+        <% @query.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-body">
+    <div>
+
+      <div class="form-table">
+        <div class="form-rows">
+          <div class="form-row">
+            <%= form.label :name, class: "form-label" %>
+            <div class="form-input-div">
+              <div data-controller= "validation" data-validation-url-value="queries" class="inline-flex">
+                <%= form.text_field(:name, {"data-action"=>"change->validation#checkQuery input->validation#resetIndicators", "data-validation-target"=>"input", class: "form-input" }) %>
+
+                <span data-validation-target="indicator" class="form-indicator"> Badge </span>
+              </div>
+            </div>
+
+            <%= render(Notifications::FormErrorComponent.new(@query.errors.full_messages_for(:name))) %>
+          </div>
+          
+          <div class="form-row">
+            <%= form.label :api_path, class: "form-label" %>
+            <div class="form-input-div">
+              <div data-controller= "validation" data-validation-url-value="queries" class="inline-flex">
+                <%= form.text_field(:api_path, {"data-action"=>"change->validation#checkQuery input->validation#resetIndicators", "data-validation-target"=>"input", class: "form-input" }) %>
+
+                <span data-validation-target="indicator" class="form-indicator"> Badge </span>
+              </div>
+            </div>
+
+            <%= render(Notifications::FormErrorComponent.new(@query.errors.full_messages_for(:api_path))) %>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pt-5">
+        <div class="flex justify-end">
+          <button type="button" class="form-cancel-btn">Cancel</button>
+          <%= form.submit class: "form-submit-btn" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

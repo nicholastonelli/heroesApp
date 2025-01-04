@@ -1,0 +1,27 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+
+
+
+<div class="card-component">
+  <div class="card-header">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card headers on desktop than on body sections -->
+    
+    <div>
+      <h3 class="text-lg leading-6 font-medium text-gray-900">Query</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- Content goes here -->
+     <%= render(Queries::QueryComponent.new(@query))  %>
+  </div>
+  <div class="card-footer">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+    <%= link_to "Edit this query", edit_query_path(@query), class: "mt-2 link-crud" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Destroy this query", query_path(@query), method: :delete, class: "mt-2 link-crud" %>
+    </div>
+    <%= link_to "Back to queries", queries_path, class: "ml-2 link-crud" %>
+  </div>
+</div>

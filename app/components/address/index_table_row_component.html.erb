@@ -1,0 +1,20 @@
+<tr>
+    <td class="index-table-key">
+        <%= link_to @address.text, @address %>
+    </td>
+    <td class="index-table-value">
+    <% case @address.type
+             when "ipv4" %>
+              IPv4
+          <% when "ipv6" %>
+              IPv6
+          <% when "mac" %>
+              MAC
+          <% end %>
+    </td>
+
+    <td class="index-table-edit">
+                  
+    <%= link_to "Edit this address", edit_address_path(@address), class: "text-indigo-600 hover:text-indigo-900" %><span class="sr-only"></span>
+    </td>
+</tr>

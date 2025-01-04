@@ -1,0 +1,13 @@
+<tr>
+    <td class="index-table-key">
+        <%= link_to @query.name, @query %>
+    </td>
+    <td class="index-table-value">
+        <%= @query.api_path %>
+    </td>
+
+    <td class="index-table-edit">
+                  
+    <%= link_to "Edit this query", edit_query_path(@query), class: "text-indigo-600 hover:text-indigo-900" %><span class="sr-only"></span>
+    </td>
+</tr>

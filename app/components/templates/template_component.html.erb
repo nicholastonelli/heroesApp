@@ -1,0 +1,29 @@
+<div>
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Name</dt>
+        <dd class="dt-left-aligned-value"><%= @template.name %></dd>
+      </div>
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Type</dt>
+        <dd class="dt-left-aligned-value"><%= @template.type %></dd>
+      </div>
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Text</dt>
+        <dd class="dt-left-aligned-value">
+          <div data-controller="editor" data-editor-read-only-value="true">
+            <div class="hidden" data-editor-target="field"><%= @template.text %></div>
+          </div>
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this template", @template, class: "link-crud" %>
+    <%= link_to "Edit this template", edit_template_path(@template), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+            
+</div>

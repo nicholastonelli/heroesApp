@@ -1,0 +1,8 @@
+<div class="bg-white w-6/6 h-200 overflow-hidden border-8" data-controller="diagram" data-action="component:requestParentController@window->diagram#returnParentController component:highlightCheck->diagram#highlighter contextmenu->diagram#addContextMenu
+click->diagram#toggleContextMenu" 
+data-diagram-sub-id-value="diagram<%= @diagram.id %>" id="diagram<%= @diagram.id %>" data-diagram-url-value="/api/diagrams/<%= @diagram.id %>?include=queries,templates">
+    <div style="left:0;top:0;">
+      <svg width="10000" height="10000" x=0 y=0 data-diagram-target="viewport" id="viewport">
+      </svg>
+    </div>
+  </div>

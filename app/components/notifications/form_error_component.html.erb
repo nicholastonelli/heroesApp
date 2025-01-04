@@ -1,0 +1,10 @@
+<div class="sm:col-span-1">
+  <!-- div rendered for errors if present -->
+  <% if @errors.present? %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li class="form-label text-red-500"><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

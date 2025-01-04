@@ -1,0 +1,84 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<%= form_with(model: @interface, class: "contents") do |form| %>
+  <% if @interface.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2><%= pluralize(@interface.errors.count, "error") %> prohibited this interface from being saved:</h2>
+
+      <ul>
+        <% @interface.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-body">
+    <div>
+      <div class="form-table">
+        <div class="form-rows">
+
+          <div class="form-row">
+            <%= form.label :name, class: "form-label" %>
+            <div class="form-input-div">
+              <%= form.text_field :name, class: "form-input" %>
+            </div>
+            <%= render(Notifications::FormErrorComponent.new(@interface.errors.full_messages_for(:name))) %>
+          </div>
+
+      <div class="form-row">
+        <%= form.label :machine_id, class: "form-label" %>
+        <div class="form-input-div">
+            <%= form.collection_select :machine_id, @sorted_machines, :id, :name, { include_blank: true }, { class: "form-input" } %>
+        </div>
+        <%= render(Notifications::FormErrorComponent.new(@interface.errors.full_messages_for(:machine_id))) %>
+      </div>
+
+      <div class="form-row">
+            <%= form.label :port, class: "form-label" %>
+            <div class="form-input-div">
+              <%= form.check_box :port, class: "form-input" %>
+            </div>
+            <%= render(Notifications::FormErrorComponent.new(@interface.errors.full_messages_for(:port))) %>
+          </div>
+
+          <div class="form-row">
+            <%= form.label :duplex, class: "form-label" %>
+            <div class="form-input-div">
+              <%= form.text_field :duplex, class: "form-input" %>
+            </div>
+            <%= render(Notifications::FormErrorComponent.new(@interface.errors.full_messages_for(:duplex))) %>
+          </div>
+
+          <div class="form-row">
+            <%= form.label :speed, class: "form-label" %>
+            <div class="form-input-div">
+              <%= form.text_field :speed, class: "form-input" %>
+            </div>
+            <%= render(Notifications::FormErrorComponent.new(@interface.errors.full_messages_for(:speed))) %>
+          </div>
+    </div>
+
+    
+
+    <div class="pt-5">
+      <div class="flex justify-end">
+        <button type="button" class="form-cancel-btn">Cancel</button>
+        <%= form.submit class: "form-submit-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

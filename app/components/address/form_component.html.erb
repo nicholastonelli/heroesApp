@@ -1,0 +1,54 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<%= form_with(model: @address, class: "contents") do |form| %>
+  <% if @address.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this @address from being saved:</h2>
+      <ul>
+        <% @address.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-body">
+    <div>
+
+      <div class="form-table">
+        <div class="form-rows">
+          <div class="form-row">
+            <%= form.label :text, class: "form-label" %>
+            <div class="form-input-div">
+              <div data-controller= "validation" data-validation-url-value="addresses" class="inline-flex">
+                <%= form.text_field(:text, {"data-action"=>"change->validation#checkAddress input->validation#resetIndicators", "data-validation-target"=>"input", class: "form-input" }) %>
+                <span data-validation-target="indicator" class="form-indicator"> Badge </span>
+                <%= render(Notifications::FormErrorComponent.new(@address.errors.full_messages_for(:text))) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-5">
+        <div class="flex justify-end">
+          <button type="button" class="form-cancel-btn">Cancel</button>
+          <%= form.submit class: "form-submit-btn" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

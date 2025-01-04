@@ -1,0 +1,29 @@
+<tr>
+    <td class="index-table-key">
+        <%= link_to @network.name, @network %>
+    </td>
+
+    <td class="index-table-value">
+        <% case @network.type
+             when "ipv4" %>
+              IPv4
+          <% when "ipv6" %>
+              IPv6
+          <% when "mac" %>
+              MAC
+          <% end %>
+    </td>
+
+    <td class="index-table-key">
+        <%= @network.text_with_prefix %>
+    </td>
+
+    <td class="index-table-value">
+        <%= @network.prefix %>
+    </td>
+                
+    <td class="index-table-edit">
+                  
+    <%= link_to "Edit this network", edit_network_path(@network), class: "text-indigo-600 hover:text-indigo-900" %><span class="sr-only"></span>
+    </td>
+</tr>

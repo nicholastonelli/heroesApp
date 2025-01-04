@@ -1,0 +1,22 @@
+<div>
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Address</dt>
+        <dd class="dt-left-aligned-value"><%= @address.text %></dd>
+      </div>
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Type</dt>
+        <dd class="dt-left-aligned-title">
+          <% case @address.type
+             when "ipv4" %>
+              IPv4
+          <% when "ipv6" %>
+              IPv6
+          <% when "mac" %>
+              MAC
+          <% end %>
+        </dd>
+      </div>
+    </dl>
+  </div>

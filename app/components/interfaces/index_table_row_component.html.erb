@@ -1,0 +1,14 @@
+<tr>
+    <td class="index-table-key">
+        <%= link_to @interface.name, @interface %>
+    </td>
+    <td class="index-table-value">
+    <% if @interface.machine %>
+        <%= link_to @interface.machine.name, machine_path(@interface.machine_id) %>
+    <% end %></td>
+                
+    <td class="index-table-edit">
+                  
+    <%= link_to "Edit this interface", edit_interface_path(@interface), class: "text-indigo-600 hover:text-indigo-900" %><span class="sr-only"></span>
+    </td>
+</tr>

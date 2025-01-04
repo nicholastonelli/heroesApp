@@ -1,0 +1,60 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<%= form_with(model: @network, class: "contents") do |form| %>
+  <% if @network.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2><%= pluralize(@network.errors.count, "error") %> prohibited this network from being saved:</h2>
+
+      <ul>
+        <% @network.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-body">
+    <div>
+
+    <div class="form-table">
+      <div class="form-rows">
+
+        <div class="form-row">
+          <%= form.label :name, class: "form-label" %>
+          <div class="form-input-div">
+            <%= form.text_field :name, class: "form-input" %>
+          </div>
+            <%= render(Notifications::FormErrorComponent.new(@network.errors.full_messages_for(:name))) %>
+        </div>
+
+        <div class="form-row">
+          <%= form.label :address, class: "form-label" %>
+          <div class="form-input-div inline-flex" data-controller="validation" data-validation-url-value="networks">
+            <%= form.text_field :text_with_prefix, {"data-action"=>"change->validation#checkAddress", "data-validation-target"=>"input", class: "form-input"} %>
+            <span data-validation-target="indicator" class="form-indicator"> Badge </span>
+          </div>
+
+          <%= render(Notifications::FormErrorComponent.new(@network.errors.full_messages_for(:address))) %>
+        </div>   
+      </div>
+    <div class="pt-5">
+      <div class="flex justify-end">
+        <button type="button" class="form-cancel-btn">Cancel</button>
+        <%= form.submit class: "form-submit-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

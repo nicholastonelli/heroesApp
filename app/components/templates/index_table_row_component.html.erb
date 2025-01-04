@@ -1,0 +1,13 @@
+<tr>
+    <td class="index-table-key">
+        <%= link_to @template.name, @template %>
+    </td>
+    <td class="index-table-value">
+        <%= @template.type%>
+    </td>
+
+    <td class="index-table-edit">
+                  
+    <%= link_to "Edit this template", edit_template_path(@template), class: "text-indigo-600 hover:text-indigo-900" %><span class="sr-only"></span>
+    </td>
+</tr>

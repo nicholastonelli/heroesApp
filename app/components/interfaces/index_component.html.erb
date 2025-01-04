@@ -1,0 +1,52 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+
+
+
+<div class="card-component">
+  <div class="card-header">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card headers on desktop than on body sections -->
+    <div class="index-header-content">
+    <div class="index-header-titles">
+      <h1 class="h1-title">Interfaces</h1>
+      <p class="p-subtitle">A list of all Interfaces, including interface name and associated machine.</p>
+    </div>
+    <div class="div-new-button">
+      <%= link_to "New interface", new_interface_path, class: "new-crud-button" %>
+    </div>
+  </div>  
+</div>
+<div class="card-body">
+    <!-- Content goes here -->
+    <!-- This example requires Tailwind CSS v2.0+ -->
+<div class="card-body-index-1">
+  
+  <div class="card-body-index-2">
+    <div class="card-body-index-3">
+      <div class="card-body-index-4">
+        <table class="card-body-table">
+          <thead>
+            <tr>
+              <th scope="col" class="index-table-label-1">Name</th>
+              <th scope="col" class="index-table-label-2">Machine</th>
+              <th scope="col" class="index-table-label-3">
+                <span class="sr-only">Edit</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            
+            <!-- More people... -->
+             <%= render(Interfaces::IndexTableRowComponent.with_collection(@interfaces)) %>    
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="card-footer">
+    <!-- Content goes here -->
+    <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+  </div>
+</div>

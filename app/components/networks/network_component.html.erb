@@ -1,0 +1,38 @@
+<div id="<%= dom_id @network %>">
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+    <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Name</dt>
+        <dd class="dt-left-aligned-value"><%= @network.name %></dd>
+      </div>
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Type</dt>
+        <dd class="dt-left-aligned-value">
+          <% case @network.type
+             when "ipv4" %>
+              IPv4
+          <% when "ipv6" %>
+              IPv6
+          <% when "mac" %>
+              MAC
+          <% end %>
+        </dd>
+      </div>
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Address</dt>
+        <dd class="dt-left-aligned-value"><%= @network.text_with_prefix %></dd>
+      </div>
+      
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Prefix</dt>
+        <dd class="dt-left-aligned-value"><%= @network.prefix %></dd>
+      </div>
+    </dl>
+  </div>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this network", @network, class: "link-crud" %>
+    <%= link_to "Edit this network", edit_network_path(@network), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

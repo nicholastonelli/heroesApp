@@ -1,0 +1,30 @@
+<div id="<%= dom_id @location %>">
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+    <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Name</dt>
+        <dd class="dt-left-aligned-value"><%= @location.name %></dd>
+      </div>
+
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Machines</dt>
+        <dd class="dt-left-aligned-value">
+        <ul class="ul-left-aligned">
+         <% @location.machines.each do |machine| %> 
+            <li>
+            <%= link_to machine.name, machine_path(machine) %>
+            </li>
+          <% end %>
+        </ul>
+        </dd>
+      </div>
+    
+    </dl>
+  </div>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this location", @location, class: "link-crud" %>
+    <%= link_to "Edit this location", edit_location_path(@location), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

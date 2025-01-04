@@ -1,0 +1,70 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<%= form_with(model: @machine, class: "contents") do |form| %>
+  <% if @machine.errors.any? %>
+    <div id="error_explanation" class="error">
+      <h2><%= pluralize(@machine.errors.count, "error") %> prohibited this machine from being saved:</h2>
+
+      <ul>
+        <% @machine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-body">
+    <div>
+    <div class="form-table">
+      <div class="form-rows">
+
+        <div class="form-row">
+          <%= form.label :name, class: "form-label" %>
+          <div class="form-input-div">
+            <%= form.text_field :name, class: "form-input" %>
+          </div>
+
+          <% if @machine.errors.full_messages_for(:name) %>
+            <%= render(Notifications::FormErrorComponent.new(@machine.errors.full_messages_for(:name))) %>
+          <% end %>
+
+        </div>
+
+        <div class="form-row">
+          <%= form.label :location, class: "form-label" %>
+          <div class="form-input-div">
+            <%= form.collection_select :location_id, @sorted_locations, :id, :name, { include_blank: true }, { class: "form-input" } %>
+          </div>
+          <%= render(Notifications::FormErrorComponent.new(@machine.errors.full_messages_for(:location))) %>
+        </div>
+
+        <div class="form-row">
+          <%= form.label :interface, class: "form-label" %>
+          <div class="form-input-div">
+          <%= form.collection_select(:interface_ids, @sorted_interfaces, :id, :name, {}, { multiple: true, class: "form-input" }) %>
+          </div>
+          <%= render(Notifications::FormErrorComponent.new(@machine.errors.full_messages_for(:interface))) %>
+        </div>
+    </div>
+   
+    <div class="pt-5">
+      <div class="flex justify-end">
+        <button type="button" class="form-cancel-btn">Cancel</button>
+        <%= form.submit class: "form-submit-btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>

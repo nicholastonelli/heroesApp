@@ -1,0 +1,41 @@
+<div id="<%= dom_id @machine %>"> 
+  <div class="div-left-aligned-top">
+    <dl class="dl-left-aligned-top">
+    <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Name</dt>
+        <dd class="dt-left-aligned-value"><%= @machine.name %></dd>
+      </div>
+
+      <% if @machine.location %>  
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Location</dt>
+        <dd class="dt-left-aligned-value">
+       
+          <%= link_to @machine.location.name, location_path(@machine.location) %>
+      
+        </dd>
+      </div>
+      <% end %>
+
+      <div class="div-left-aligned-table-row">
+        <dt class="dt-left-aligned-title">Interfaces</dt>
+        <dd class="dt-left-aligned-value">
+        <ul class="ul-left-aligned">
+          <% @machine.interfaces.each do |interface| %>
+            <li>
+            <%= link_to interface.name, interface_path(interface) %>
+            </li>
+          <% end %>
+        </ul>
+        </dd>
+      </div>
+    
+    </dl>
+  </div>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this machine", @machine, class: "link-crud" %>
+    <%= link_to "Edit this machine", edit_machine_path(@machine), class: "link-crud ml-2" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
