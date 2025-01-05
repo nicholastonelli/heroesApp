@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vessels
   resources :charactersheets
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,5 +16,8 @@ Rails.application.routes.draw do
   root "main_page#index"
 
   get "/avery", to: "avery#index"
+  get "/phearon", to: "phearon#index"
+  get "/roberts", to: "roberts#index"
+  get "/feargus", to: "feargus#index"
 
 end
