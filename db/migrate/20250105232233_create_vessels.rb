@@ -3,7 +3,6 @@ class CreateVessels < ActiveRecord::Migration[8.0]
     create_table :vessels do |t|
       t.string :name
       t.string :type
-      t.string :complement
       t.string :propulsion
       t.string :maneuverablility
       t.string :size
@@ -26,7 +25,7 @@ class CreateVessels < ActiveRecord::Migration[8.0]
       t.integer :speed
       t.integer :cost
       t.integer :rowers
-
+      t.string :vessel_type
       t.timestamps
     end
   end
