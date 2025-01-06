@@ -17,7 +17,7 @@ class VesselsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create vessel" do
     assert_difference("Vessel.count") do
-      post vessels_url, params: { vessel: { complement: @vessel.complement, cost: @vessel.cost, height: @vessel.height, hull_sections: @vessel.hull_sections, maneuverablility: @vessel.maneuverablility, mounts: @vessel.mounts, name: @vessel.name, overall_ac: @vessel.overall_ac, propulsion: @vessel.propulsion, ram: @vessel.ram, rigging_hp: @vessel.rigging_hp, rigging_sections: @vessel.rigging_sections, rowers: @vessel.rowers, seaworthiness: @vessel.seaworthiness, section_ac: @vessel.section_ac, section_hp: @vessel.section_hp, shiphandling: @vessel.shiphandling, sink: @vessel.sink, size: @vessel.size, space: @vessel.space, speed: @vessel.speed, spped: @vessel.spped, type: @vessel.type, watch: @vessel.watch } }
+      post vessels_url, params: { vessel: { complement: @vessel.complement, cost: @vessel.cost, height: @vessel.height, hull_sections: @vessel.hull_sections, maneuverablility: @vessel.maneuverablility, mounts: @vessel.mounts, name: @vessel.name, overall_ac: @vessel.overall_ac, propulsion: @vessel.propulsion, ram: @vessel.ram, rigging_hp: @vessel.rigging_hp, rigging_sections: @vessel.rigging_sections, rowers: @vessel.rowers, seaworthiness: @vessel.seaworthiness, section_ac: @vessel.section_ac, section_hp: @vessel.section_hp, shiphandling: @vessel.shiphandling, sink: @vessel.sink, size: @vessel.size, space: @vessel.space, speed: @vessel.speed, type: @vessel.type, watch: @vessel.watch } }
     end
 
     assert_redirected_to vessel_url(Vessel.last)
@@ -34,7 +34,7 @@ class VesselsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update vessel" do
-    patch vessel_url(@vessel), params: { vessel: { complement: @vessel.complement, cost: @vessel.cost, height: @vessel.height, hull_sections: @vessel.hull_sections, maneuverablility: @vessel.maneuverablility, mounts: @vessel.mounts, name: @vessel.name, overall_ac: @vessel.overall_ac, propulsion: @vessel.propulsion, ram: @vessel.ram, rigging_hp: @vessel.rigging_hp, rigging_sections: @vessel.rigging_sections, rowers: @vessel.rowers, seaworthiness: @vessel.seaworthiness, section_ac: @vessel.section_ac, section_hp: @vessel.section_hp, shiphandling: @vessel.shiphandling, sink: @vessel.sink, size: @vessel.size, space: @vessel.space, speed: @vessel.speed, spped: @vessel.spped, type: @vessel.type, watch: @vessel.watch } }
+    patch vessel_url(@vessel), params: { vessel: { complement: @vessel.complement, cost: @vessel.cost, height: @vessel.height, hull_sections: @vessel.hull_sections, maneuverablility: @vessel.maneuverablility, mounts: @vessel.mounts, name: @vessel.name, overall_ac: @vessel.overall_ac, propulsion: @vessel.propulsion, ram: @vessel.ram, rigging_hp: @vessel.rigging_hp, rigging_sections: @vessel.rigging_sections, rowers: @vessel.rowers, seaworthiness: @vessel.seaworthiness, section_ac: @vessel.section_ac, section_hp: @vessel.section_hp, shiphandling: @vessel.shiphandling, sink: @vessel.sink, size: @vessel.size, space: @vessel.space, speed: @vessel.speed, type: @vessel.type, watch: @vessel.watch } }
     assert_redirected_to vessel_url(@vessel)
   end
 

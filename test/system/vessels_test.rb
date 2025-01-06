@@ -35,7 +35,6 @@ class VesselsTest < ApplicationSystemTestCase
     fill_in "Size", with: @vessel.size
     fill_in "Space", with: @vessel.space
     fill_in "Speed", with: @vessel.speed
-    fill_in "Spped", with: @vessel.spped
     fill_in "Type", with: @vessel.type
     fill_in "Watch", with: @vessel.watch
     click_on "Create Vessel"
@@ -69,7 +68,6 @@ class VesselsTest < ApplicationSystemTestCase
     fill_in "Size", with: @vessel.size
     fill_in "Space", with: @vessel.space
     fill_in "Speed", with: @vessel.speed
-    fill_in "Spped", with: @vessel.spped
     fill_in "Type", with: @vessel.type
     fill_in "Watch", with: @vessel.watch
     click_on "Update Vessel"

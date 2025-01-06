@@ -8,7 +8,6 @@ class CreateVessels < ActiveRecord::Migration[8.0]
       t.string :size
       t.integer :seaworthiness
       t.integer :shiphandling
-      t.integer :spped
       t.integer :overall_ac
       t.integer :hull_sections
       t.integer :sink

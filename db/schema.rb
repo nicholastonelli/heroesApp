@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_05_232233) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_06_213711) do
   create_table "charactersheets", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -25,7 +25,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_05_232233) do
     t.string "size"
     t.integer "seaworthiness"
     t.integer "shiphandling"
-    t.integer "spped"
     t.integer "overall_ac"
     t.integer "hull_sections"
     t.integer "sink"
@@ -44,5 +43,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_05_232233) do
     t.integer "rowers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "vessel_type"
+    t.integer "rigging_hardness"
+    t.integer "light_mounts"
+    t.integer "heavy_mounts"
+    t.integer "cargo"
+    t.integer "section_hardness"
   end
 end

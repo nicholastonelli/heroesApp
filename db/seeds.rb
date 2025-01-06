@@ -16,44 +16,88 @@ end
 
 # 21 types of vessel
 
-Ships_array = { "barge": {
-"vessel_type": "barge",
-"complement":120/5/40,
-"speed":0.5,
-"cost":6000,
-"size": "Colossal",
-"Seaworthiness": 0,
-"Shiphandling": -6,
-"Speed": 5,
-"Overall AC": -3,
-"Hull Sections": 80,
-"Sink": 20,
-"Section HP": 50,
-"Section Hardness": 5,
-"Section AC": 3,
-"Ram": "6d6",
-"Light Mounts": 2,
-"Heavy Mounts": 2,
-"Space": "100ft. by 40ft.",
-"Height": "10ft",
-"Complement": 120,
-"Watch": 5,
-"Rowers": 40,
-"Cargo": 50,
-"Cost": 6000
+Ships_array = { "barge"=> {
+"vessel_type"=> "barge",
+"speed"=>0.5,
+"cost"=>6000,
+"size"=> "Colossal",
+"seaworthiness"=> 0,
+"shiphandling"=> -6,
+"overall AC"=> -3,
+"hull sections"=> 80,
+"sink"=> 20,
+"section hp"=> 50,
+"section hardness"=> 5,
+"section ac"=> 3,
+"ram"=> "6d6",
+"rigging sections" => 0,
+"rigging hp" => 0,
+"rigging hardness" => 0,
+"light mounts"=> 2,
+"heavy mounts"=> 2,
+"mounts"=> 2,
+"space"=> "100ft. by 40ft.",
+"height"=> "10ft",
+"complement"=> 120,
+"watch"=> 5,
+"rowers"=> 40,
+"cargo"=> 50
+},
+"caravel"=> {
+"vessel_type"=> "caravel",
+"speed"=>3,
+"cost"=>10000,
+"size"=> "Colossal",
+"seaworthiness"=> +4,
+"shiphandling"=> +2,
+"overall AC"=> -3,
+"hull sections"=> 24,
+"sink"=> 6,
+"section hp"=> 80,
+"section hardness"=> 5,
+"section ac"=> 3,
+"ram"=> "4d6",
+"rigging sections" => 3,
+"rigging hp" => 80,
+"rigging hardness" => 0,
+"light mounts"=> 2,
+"heavy mounts"=> 1,
+"mounts"=> 3,
+"space"=> "60ft. by 20ft.",
+"height"=> "10ft",
+"complement"=> 30,
+"watch"=> 7,
+"rowers"=> 0,
+"cargo"=> 120
 }
 }
 
-Ships_sample = { "barge"=> {
-"type"=> "barge",
-"complement"=>120/5/40
-}
-}
-puts Ships_sample["barge"]["type"]
 
-["barge"].each  do | ship |
+["barge", "caravel"].each  do | ship |
   5.times do 
-    Vessel.create! name: Faker::Creature::Animal.name
+    vessel = Vessel.create! name: Faker::Address.unique.city, 
+    vessel_type: Ships_array[ship]["vessel_type"], 
+    complement: Ships_array[ship]["complement"], 
+    watch: Ships_array[ship]["watch"], 
+    rowers: Ships_array[ship]["rowers"],"size"=> "Colossal",
+    seaworthiness: Ships_array[ship]["seaworthiness"],
+    shiphandling: Ships_array[ship]["shiphandling"],
+    overall_ac: Ships_array[ship]["overall AC"],
+    hull_sections: Ships_array[ship]["hull sections"],
+    sink: Ships_array[ship]["sink"],
+    section_hp: Ships_array[ship]["section hp"],
+    section_hardness:Ships_array[ship]["section hardness"],
+    section_ac: Ships_array[ship]["section ac"],
+    ram: Ships_array[ship]["ram"],
+    rigging_sections: Ships_array[ship]["rigging sections"],
+    rigging_hardness: Ships_array[ship]["rigging hardness"],
+    rigging_hp: Ships_array[ship]["rigging hp"],
+    light_mounts: Ships_array[ship]["light mounts"],
+    heavy_mounts: Ships_array[ship]["heavy mounts"],
+    mounts: Ships_array[ship]["mounts"],
+    space: Ships_array[ship]["space"],
+    height: Ships_array[ship]["height"],
+    cargo: Ships_array[ship]["cargo"]
   end
 end
 

@@ -9,7 +9,6 @@ one:
   size: MyString
   seaworthiness: 1
   shiphandling: 1
-  spped: 1
   overall_ac: 1
   hull_sections: 1
   sink: 1
@@ -36,7 +35,6 @@ two:
   size: MyString
   seaworthiness: 1
   shiphandling: 1
-  spped: 1
   overall_ac: 1
   hull_sections: 1
   sink: 1

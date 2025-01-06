@@ -65,6 +65,6 @@ class VesselsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vessel_params
-      params.expect(vessel: [ :name, :type, :complement, :propulsion, :maneuverablility, :size, :seaworthiness, :shiphandling, :spped, :overall_ac, :hull_sections, :sink, :section_hp, :section_ac, :rigging_sections, :rigging_hp, :ram, :mounts, :space, :height, :watch, :complement, :speed, :cost, :rowers ])
+      params.expect(vessel: [ :name, :type, :complement, :propulsion, :maneuverablility, :size, :seaworthiness, :shiphandling, :overall_ac, :hull_sections, :sink, :section_hp, :section_ac, :rigging_sections, :rigging_hp, :ram, :mounts, :space, :height, :watch, :complement, :speed, :cost, :rowers ])
     end
 end
