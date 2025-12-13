@@ -102,3 +102,4 @@ Ships_array = { "barge"=> {
 end
 
 puts "Vessels: #{Vessel.count}"
+puts "Charactera: #{Charactersheet.count}"
